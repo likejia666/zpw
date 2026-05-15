@@ -2132,7 +2132,7 @@ GET /api/employer/talent-pool
 说明：
 - 人才库列表与搜索统一复用 `GET /api/employer/talent-pool`，不再单独保留 `/api/employer/talent-pool/search`
 - 同一求职者可能以不同工种存在于人才库中，分别展示为独立记录
-- `category_name` 来自 `talent_pool.category_name` 快照字段，不再关联查询【修订】
+- `category_name` 来自 `talent_pool.category_name` 快照字段，不再关联查询
 - `level` 与 `level_name` 来自加入人才库时固化的 `talent_pool.level` 快照
 - 列表默认按 `created_at DESC` 排序
 
@@ -2148,9 +2148,9 @@ POST /api/employer/talent-pool/add
 }
 
 Laravel 实现说明：
-- 服务端根据 `source_application_id` 反查报名记录，自动写入 `seeker_id`、`source_job_id`、`category_id`、`category_name`、`level`【修订】
+- 服务端根据 `source_application_id` 反查报名记录，自动写入 `seeker_id`、`source_job_id`、`category_id`、`category_name`、`level`
 - 仅允许将当前雇主自己发布职位下的报名记录加入人才库
-- 同一雇主对同一求职者的同一工种仅保留一条人才库记录【修订】
+- 同一雇主对同一求职者的同一工种仅保留一条人才库记录
 - 若同一求职者以不同工种报名，可分别加入人才库（不影响已有工种记录）
 
 成功响应：

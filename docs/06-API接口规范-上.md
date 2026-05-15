@@ -465,7 +465,7 @@ Authorization: Bearer {token}
   }
 }
 
-【6.3.6 修改个人信息】【编号修正】
+【6.3.6 修改个人信息】
 PUT /api/user/update
 
 请求参数：
@@ -1278,7 +1278,7 @@ GET /api/job/detail
 - 雇主查看自己职位时，返回top_application置顶申请状态
 - 浏览记录写入采用异步队列，不影响接口响应速度
 
-【6.6.5 雇主获取自己的职位列表】【编号修正】
+【6.6.5 雇主获取自己的职位列表】
 GET /api/job/my-list
 
 请求头：Authorization: Bearer {token}（雇主身份）
@@ -1313,7 +1313,7 @@ GET /api/job/my-list
   }
 }
 
-【6.6.6 发布职位】【编号修正】
+【6.6.6 发布职位】
 POST /api/job/publish
 
 请求头：
@@ -1389,7 +1389,7 @@ Laravel 实现说明：
 - 直接发布成功时，服务端应同时写入 `audit_status = 1`，表示该职位视为系统自动审核通过
 - 企业认证未通过时，发布接口应返回业务错误并提示用户先完成认证或继续保存草稿
 
-【6.6.7 保存草稿】【编号修正】
+【6.6.7 保存草稿】
 POST /api/job/save-draft
 
 请求头：Authorization: Bearer {token}
@@ -1412,7 +1412,7 @@ POST /api/job/save-draft
   }
 }
 
-【6.6.8 编辑职位】【编号修正】
+【6.6.8 编辑职位】
 PUT /api/job/update
 
 请求参数：
@@ -1428,7 +1428,7 @@ PUT /api/job/update
   "data": null
 }
 
-【6.6.9 刷新职位】【编号修正】
+【6.6.9 刷新职位】
 PUT /api/job/refresh
 
 请求参数：
@@ -1445,7 +1445,7 @@ PUT /api/job/refresh
   }
 }
 
-【6.6.10 删除职位】【编号修正】
+【6.6.10 删除职位】
 DELETE /api/job/delete
 
 请求参数：
@@ -1460,7 +1460,7 @@ DELETE /api/job/delete
   "data": null
 }
 
-【6.6.11 切换职位状态（暂停/继续）】【编号修正】
+【6.6.11 切换职位状态（暂停/继续）】
 PUT /api/job/toggle-status
 
 请求头：Authorization: Bearer {token}
@@ -1480,7 +1480,7 @@ PUT /api/job/toggle-status
   }
 }
 
-【6.6.12 复制职位】【编号修正】
+【6.6.12 复制职位】
 POST /api/job/copy
 
 请求头：Authorization: Bearer {token}
@@ -1500,7 +1500,7 @@ POST /api/job/copy
   }
 }
 
-【6.6.13 申请置顶】【编号修正】
+【6.6.13 申请置顶】
 POST /api/job/apply-top
 
 请求头：Authorization: Bearer {token}
@@ -1534,7 +1534,7 @@ status状态说明：
 - 管理员审核通过后，职位才会正式置顶
 - 管理员可直接设置置顶，但系统会先检查是否有待审核的用户申请，如有则提示管理员去审核
 
-【6.6.13.1 查询置顶申请状态】【编号修正】
+【6.6.13.1 查询置顶申请状态】
 GET /api/job/top-application-status
 
 请求头：Authorization: Bearer {token}
@@ -1582,7 +1582,7 @@ GET /api/job/top-application-status
 - 评论内容应复用违禁词/联系方式过滤规则，并通过统一内容安全服务拦截；被举报评论可异步派发审核任务
 - 职位统计接口建议由 `JobStatisticsService` 汇总，复杂聚合查询与图表数据整形不要放在控制器中
 
-【6.6.14 职位数据统计（雇主端）】【编号修正】
+【6.6.14 职位数据统计（雇主端）】
 GET /api/job/statistics
 
 请求头：Authorization: Bearer {token}
@@ -1624,7 +1624,7 @@ GET /api/job/statistics
 - daily_views 数组按日期倒序排列
 - 统计接口每小时刷新一次聚合数据
 
-【6.6.15 雇主整体数据统计】【编号修正】
+【6.6.15 雇主整体数据统计】
 GET /api/employer/statistics
 
 请求头：Authorization: Bearer {token}
